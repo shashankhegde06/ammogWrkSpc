@@ -102,7 +102,7 @@ jobs:
         API_TOKEN_GITHUB: ${{ secrets.PUSH_TOKEN }}
       with:
 
-        source_file: 'main/.'
+        source_file: 'Main/.'
         destination_repo: 'shashankhegde06/ammogWrkSpc'
         
 
