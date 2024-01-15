@@ -1,0 +1,29 @@
+name: Wapiti DAST Scan
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  wapiti_scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Wapiti
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wapiti
+
+      - name: Run Wapiti scan
+        run: |
+          wapiti -u http://127.0.0.1:5500/PD_Try/templates/ -o wapiti-report.html
+
+      - name: Upload Wapiti HTML report
+        uses: actions/upload-artifact@v2
+        with:
+          name: wapiti-report
+          path: wapiti-report.html
