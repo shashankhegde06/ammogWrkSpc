@@ -3,7 +3,7 @@ name: Wapiti DAST Scan
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   wapiti_scan:
